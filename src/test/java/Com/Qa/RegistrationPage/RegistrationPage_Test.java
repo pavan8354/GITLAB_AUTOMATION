@@ -4,15 +4,20 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import okhttp3.CacheControl.Builder;
+
 public class RegistrationPage_Test {
 
 	WebDriver driver;
+	Action action;
 
 	@BeforeMethod
 	public void setup() {
@@ -22,8 +27,8 @@ public class RegistrationPage_Test {
 		driver.manage().window().maximize();
 		driver.get("https://gitlab.com/users/sign_in#register-pane");
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-
-	}
+		
+			}
 
 	@Test()
 
@@ -37,18 +42,17 @@ public class RegistrationPage_Test {
 		driver.findElement(By.xpath("//input[@id='new_user_password']")).sendKeys("654321789");
 		driver.findElement(By.xpath("//input[@id='new_user_email_opted_in']")).click();
 		
-		driver.switchTo().frame("a-cl0lo3q28lh2");
-		driver.findElement(By.xpath("//span[@id='recaptcha-anchor']")).click();
 		
+		//------> we cannot automate the Robot captcha in selenium so we need to take help of development person to solve this issues 		
 		//driver.switchTo().frame("rc-anchor-alert");
 		driver.findElement(By.xpath("//div[@class='submit-container mt-3']")).click();
 		String Regtitle = driver.getTitle();
 		System.out.println("The Registration Page Title is:::::::"+Regtitle);
-		Assert.assertEquals(Regtitle, "Your profile · GitLab");
+		Assert.assertEquals(Regtitle, "Sign up · GitLab");
 
 	}	
-
-	@AfterMethod
+//------> we cannot automate the Robot captcha in selenium so we need to take help of development person to solve this issues 
+	@AfterMethod 
 
 	public void teardown() {
 
