@@ -25,14 +25,14 @@ public class RegistrationPage_Test {
 		System.setProperty("webdriver.chrome.driver", "C:\\JAVALEARN\\filewriting\\chromedriver.exe");	
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("https://gitlab.com/users/sign_in#register-pane");
+		driver.get("https://gitlab.com/projects/new");
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		
 			}
 
 	@Test()
 
-	public void Registration_Page_Test() {
+	public void Create_New_Project() {
 
 		driver.findElement(By.xpath("//input[@id='new_user_first_name']")).sendKeys("Test");
 		driver.findElement(By.xpath("//input[@id='new_user_last_name']")).sendKeys("12345987456");

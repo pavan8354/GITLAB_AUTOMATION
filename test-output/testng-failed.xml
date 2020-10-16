@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Com.Qa.RegistrationPage.RegistrationPage_Test">
+      <class name="Com.Qa.CreateProject.NewProject">
         <methods>
-          <include name="setup"/>
-          <include name="Registration_Page_Test"/>
           <include name="teardown"/>
+          <include name="setup"/>
+          <include name="New_Project"/>
         </methods>
-      </class> <!-- Com.Qa.RegistrationPage.RegistrationPage_Test -->
+      </class> <!-- Com.Qa.CreateProject.NewProject -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
